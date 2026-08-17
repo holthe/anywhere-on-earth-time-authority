@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The last local time on Earth. Official Anywhere on Earth (UTC-12) clock and deadline pronouncement service, kept over Baker and Howland Islands, population 0.">
+<meta name="robots" content="index, follow">
+
+<!-- PRODUCTION DOMAIN, hardcoded. aoetimeauthority.org is a candidate, not
+     purchased. If the site lands elsewhere, change the four absolute URLs
+     below and the footer of tools/og.html, then re-run `make og`. Those are
+     the only two files that name it; nothing derives it. -->
+<link rel="canonical" href="https://aoetimeauthority.org/">
+<meta name="theme-color" content="#083a66">
+
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="48x48 32x32 16x16">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Anywhere on Earth Time Authority">
+<meta property="og:url" content="https://aoetimeauthority.org/">
+<meta property="og:title" content="The Anywhere on Earth Time Authority">
+<meta property="og:description" content="Where every day ends last. The official UTC-12 clock and deadline checker.">
+<meta property="og:image" content="https://aoetimeauthority.org/og.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The Anywhere on Earth Time Authority: a large 23:59:59 clock readout on official blue, over the words Baker and Howland Islands, UTC-12.">
+<meta property="og:locale" content="en_US">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Anywhere on Earth Time Authority">
+<meta name="twitter:description" content="Where every day ends last. The official UTC-12 clock and deadline checker.">
+<meta name="twitter:image" content="https://aoetimeauthority.org/og.png">
+<meta name="twitter:image:alt" content="The Anywhere on Earth Time Authority: a large 23:59:59 clock readout on official blue, over the words Baker and Howland Islands, UTC-12.">
+<title>Anywhere on Earth Time Authority | Baker &amp; Howland Islands, UTC-12</title>
+<style>
+  :root{
+    --blue:#0b4f8a; --blue-deep:#083a66; --sand:#f5efdf; --white:#fff; --ink:#1c2733;
+    --teal:#0e7d7d; --muted:#5f6b78; --line:#d8dee5; --alive:#1f7a3d; --dead:#a83232;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+  body{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;color:var(--ink);background:#fff;line-height:1.55}
+  h1,h2,h3{font-family:Georgia,"Times New Roman",serif}
+  .wrap{max-width:900px;margin:0 auto;padding:0 20px}
+  .mono{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace}
+  a{color:var(--blue)}
+  button:focus-visible,input:focus-visible,a:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
+
+  .govbar{background:var(--sand);font-size:12px;color:#6b6350;padding:6px 0;border-bottom:1px solid #e4dcc6}
+  header{background:var(--blue-deep);color:#fff;padding:24px 0}
+  header .wrap{display:flex;gap:16px;align-items:center}
+  .seal{width:92px;height:92px;max-width:26vw;flex:none}
+  .agency small{display:block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#9dbdda}
+  .agency b{font-family:Georgia,serif;font-size:21px}
+  .agency i{display:block;font-size:12px;color:#9dbdda;font-style:italic;margin-top:2px}
+
+  .clockpanel{background:var(--blue);color:#fff;padding:40px 0 38px;text-align:center}
+  .clockpanel .lbl{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:#9dbdda}
+  .clock{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:clamp(44px,11vw,84px);font-weight:700;font-variant-numeric:tabular-nums;letter-spacing:.02em;margin-top:6px}
+  .clockdate{font-size:16px;color:#cfe0ef;margin-top:2px}
+  .clocknote{font-size:12.5px;color:#9dbdda;margin-top:12px;max-width:520px;margin-left:auto;margin-right:auto}
+
+  section{padding:44px 0;border-bottom:1px solid var(--line)}
+  .kicker{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--teal);font-weight:800}
+  section h2{font-size:26px;margin:6px 0 8px}
+  section p.intro{color:var(--muted);max-width:640px}
+
+  .checker{margin-top:22px;background:var(--sand);border:1px solid #e4dcc6;padding:24px;max-width:680px}
+  .checker label{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#6b6350;margin-bottom:6px;font-weight:700}
+  .row{display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end}
+  .field{min-width:180px}
+  input[type=date]{font:inherit;font-size:15px;padding:10px 12px;border:1px solid #9aa3ad;background:#fff}
+  button{font:inherit;font-weight:800;background:var(--blue);color:#fff;border:0;padding:11px 24px;cursor:pointer}
+  button:hover{background:#0d5c9e}
+  .pulse{margin-top:18px;display:none;background:#fff;border-left:6px solid;padding:16px 18px}
+  .pulse.alive{display:block;border-color:var(--alive)}
+  .pulse.dead{display:block;border-color:var(--dead)}
+  .pulse b{display:block;font-size:12px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:4px}
+  .pulse .big{font-size:24px;font-variant-numeric:tabular-nums;margin:4px 0}
+  .pulse p{font-size:13.5px;color:var(--muted)}
+
+  .islandgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-top:22px}
+  .islandgrid div{background:#fff;padding:16px}
+  .islandgrid b{display:block;font-size:20px}
+  .islandgrid span{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+
+  .visitor{margin-top:22px;max-width:680px}
+  .visitor li{list-style:none;display:flex;gap:12px;padding:11px 0;border-bottom:1px dotted var(--line);font-size:14.5px}
+  .visitor li span:first-child{flex:none;width:170px;color:var(--muted);font-size:12px;letter-spacing:.1em;text-transform:uppercase;padding-top:2px}
+
+  details{border:1px solid var(--line);border-bottom:0}
+  details:last-of-type{border-bottom:1px solid var(--line)}
+  summary{padding:14px 16px;font-weight:700;cursor:pointer}
+  summary:hover{background:var(--sand)}
+  details p{padding:0 16px 16px;color:var(--muted);max-width:680px;font-size:14.5px}
+
+  footer{padding:32px 0 48px;font-size:12px;color:var(--muted);background:var(--sand)}
+  footer .doc{letter-spacing:.14em;text-transform:uppercase;font-size:11px}
+  footer p{margin-top:8px;max-width:720px}
+</style>
+</head>
+<body>
+
+<div class="govbar"><div class="wrap">An official website of the Baker and Howland Islands, population 0. Official status self-declared, uncontested, as there is no one to contest it.</div></div>
+
+<header>
+  <div class="wrap">
+    <svg class="seal" viewBox="0 0 100 100" role="img" aria-label="Seal of the Anywhere on Earth Time Authority">
+      <defs>
+        <clipPath id="aoeCore"><circle cx="50" cy="50" r="33"/></clipPath>
+        <path id="aoeArcTop" d="M 11.9,50 A 38.1,38.1 0 0 1 88.1,50"/>
+        <path id="aoeArcBot" d="M 8.3,50 A 41.7,41.7 0 0 0 91.7,50"/>
+      </defs>
+      <circle cx="50" cy="50" r="49" fill="#f5efdf" stroke="#9dbdda" stroke-width="1.6"/>
+      <circle cx="50" cy="50" r="45.5" fill="none" stroke="#0b4f8a" stroke-width="1.4"/>
+      <circle cx="50" cy="50" r="34.6" fill="none" stroke="#0b4f8a" stroke-width="1"/>
+      <circle cx="50" cy="50" r="33.8" fill="none" stroke="#0b4f8a" stroke-width="0.4" opacity="0.6"/>
+      <image href="data:image/webp;base64,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" x="17" y="17" width="66" height="66" clip-path="url(#aoeCore)"/>
+      <text font-family="Georgia,serif" font-size="5.5" letter-spacing="0.3" fill="#083a66" font-weight="700">
+        <textPath href="#aoeArcTop" startOffset="50%" text-anchor="middle">ANYWHERE ON EARTH</textPath>
+      </text>
+      <text font-family="Georgia,serif" font-size="5" letter-spacing="0.45" fill="#0b4f8a">
+        <textPath href="#aoeArcBot" startOffset="50%" text-anchor="middle">TIME AUTHORITY · UTC-12</textPath>
+      </text>
+      <g fill="#0b4f8a">
+        <path d="M0 -2.3 L0.68 -0.71 L2.3 -0.55 L1.04 0.57 L1.43 2.3 L0 1.38 L-1.43 2.3 L-1.04 0.57 L-2.3 -0.55 L-0.68 -0.71 Z" transform="translate(10.5 50)"/>
+        <path d="M0 -2.3 L0.68 -0.71 L2.3 -0.55 L1.04 0.57 L1.43 2.3 L0 1.38 L-1.43 2.3 L-1.04 0.57 L-2.3 -0.55 L-0.68 -0.71 Z" transform="translate(89.5 50)"/>
+      </g>
+    </svg>
+    <div class="agency">
+      <b>The Anywhere on Earth Time Authority</b>
+      <i>Baker &amp; Howland Islands · UTC-12 · Where every day ends last</i>
+    </div>
+  </div>
+</header>
+
+<div class="clockpanel">
+  <div class="wrap">
+    <div class="lbl">Official Anywhere on Earth time · UTC-12</div>
+    <div class="clock" id="aoeClock">--:--:--</div>
+    <div class="clockdate" id="aoeDate">-</div>
+    <div class="clocknote">This is the last local time on Earth. When a date ends here, it has ended everywhere. Until then, technically, you have time.</div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="kicker">Deadline services</div>
+    <h2>Is my deadline still alive?</h2>
+    <p class="intro">Conferences and journals worldwide set deadlines "Anywhere on Earth", which means a date has not ended until it ends in UTC-12. Enter your deadline date. The Authority will pronounce.</p>
+    <div class="checker">
+      <div class="row">
+        <div class="field">
+          <label for="dl">Deadline date (AoE)</label>
+          <input type="date" id="dl">
+        </div>
+        <button id="dlBtn">Pronounce</button>
+      </div>
+      <div class="pulse" id="pulse"></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kicker">About the jurisdiction</div>
+    <h2>The islands behind your deadline</h2>
+    <p class="intro">UTC-12 contains almost nothing. Its only land is Baker Island and Howland Island, two uninhabited US atolls near the equator, administered as wildlife refuges. Every "23:59 AoE" on the planet is, formally, 23:59 here, on the local time of a place where no one has ever submitted anything.</p>
+    <div class="islandgrid">
+      <div><b>0</b><span>Permanent residents</span></div>
+      <div><b>~2.5 km²</b><span>Combined land area</span></div>
+      <div><b>Millions</b><span>Deadlines administered (annually)</span></div>
+      <div><b>Seabirds</b><span>Primary constituents</span></div>
+    </div>
+    <ul class="visitor">
+      <li><span>Getting here</span><div>There is no scheduled transport. Amelia Earhart was due at Howland Island in 1937 and did not arrive, which remains the most notable visit on record.</div></li>
+      <li><span>Visitor centre</span><div>Open never. Access requires a US Fish and Wildlife Service permit, which is real, and a boat, which is your problem.</div></li>
+      <li><span>Local economy</span><div>None. The islands' sole export is the concept of the day not being over yet, provided free of charge to academia.</div></li>
+      <li><span>Nightlife</span><div>The last on Earth, every night, by definition. Attendance: frigatebirds.</div></li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kicker">Public guidance</div>
+    <h2>Frequently asked questions</h2>
+    <details>
+      <summary>Is AoE real?</summary>
+      <p>Yes. Anywhere on Earth, UTC-12, is a genuine convention used by IEEE, major academic conferences, and standards bodies for deadlines. The islands are real, the timezone is real, and the emptiness is real. Only the Authority is invented, which it considers a technicality.</p>
+    </details>
+    <details>
+      <summary>So I can submit after midnight my time?</summary>
+      <p>If the deadline is AoE, yes, as long as the date survives in UTC-12. The Authority provides this fact as a public service and accepts no responsibility for what reviewers can tell about work submitted at 11:58 AoE. They can tell.</p>
+    </details>
+    <details>
+      <summary>Who ends the day, exactly?</summary>
+      <p>Formally, the day expires over Baker and Howland Islands and the surrounding ocean. No official is present for the ceremony. The Authority likes to think a frigatebird glances at the horizon.</p>
+    </details>
+    <details>
+      <summary>Is there a place where days begin?</summary>
+      <p>Yes, UTC+14, kept by Kiribati's Line Islands, which are inhabited and reach each date first. The Authority maintains a formal rivalry with them, conducted entirely by never communicating, as befits a 26-hour separation.</p>
+    </details>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="doc">DOC: BEI-013 · REV 1.0 / FINAL / EFFECTIVE UNTIL 23:59:59 AOE, DAILY</div>
+    <p>The Anywhere on Earth Time Authority is a division of <a href="https://besteffortindustries.com">Best Effort Industries</a> and has no connection to the US Fish and Wildlife Service, the IERS, IEEE, or any seabird. The clock above is computed as UTC-12 from your device's clock; if your device's clock is wrong, your deadline problems exceed our jurisdiction.</p>
+    <p>© UTC-12 · THE ANYWHERE ON EARTH TIME AUTHORITY · THE DAY ISN'T OVER UNTIL WE SAY SO, AND WE SAY NOTHING</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var OFFSET = -12*3600*1000;
+  var DAYS=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  var MONTHS=['January','February','March','April','May','June','July','August','September','October','November','December'];
+  function pad(n){return String(n).padStart(2,'0')}
+  function aoeNow(){ return new Date(Date.now()+OFFSET); }
+  function tick(){
+    var t = aoeNow();
+    document.getElementById('aoeClock').textContent = pad(t.getUTCHours())+':'+pad(t.getUTCMinutes())+':'+pad(t.getUTCSeconds());
+    document.getElementById('aoeDate').textContent = DAYS[t.getUTCDay()]+', '+MONTHS[t.getUTCMonth()]+' '+t.getUTCDate()+', '+t.getUTCFullYear()+' (AoE)';
+  }
+  tick(); setInterval(tick,1000);
+
+  var pulse = document.getElementById('pulse');
+  var dl = document.getElementById('dl');
+  var t0 = aoeNow();
+  dl.value = t0.getUTCFullYear()+'-'+pad(t0.getUTCMonth()+1)+'-'+pad(t0.getUTCDate());
+  var timer = null;
+
+  function fmtDur(ms){
+    var s = Math.floor(ms/1000);
+    var d = Math.floor(s/86400); s-=d*86400;
+    var h = Math.floor(s/3600); s-=h*3600;
+    var m = Math.floor(s/60); s-=m*60;
+    var out=[];
+    if(d) out.push(d+'d');
+    out.push(pad(h)+'h', pad(m)+'m', pad(s)+'s');
+    return out.join(' ');
+  }
+
+  function pronounce(){
+    var v = dl.value;
+    if(!v){ pulse.className='pulse dead'; pulse.innerHTML='<b>No pronouncement possible</b><p>No date supplied. A deadline with no date cannot die, which the Authority notes is one strategy.</p>'; return; }
+    var p = v.split('-').map(Number);
+    // deadline ends when the date ends in UTC-12: end-of-day AoE = 23:59:59 at UTC-12 = next-day 11:59:59 UTC
+    var endUtc = Date.UTC(p[0], p[1]-1, p[2], 23,59,59) + 12*3600*1000;
+    function render(){
+      var left = endUtc - Date.now();
+      if(left > 0){
+        pulse.className='pulse alive';
+        pulse.innerHTML='<b>Deadline status: ALIVE</b>'
+          +'<div class="big mono">'+fmtDur(left)+' remaining</div>'
+          +'<p>Somewhere over two uninhabited atolls in the Pacific, your date persists. It will hold until 23:59:59 local time, witnessed by no one. Proceed accordingly, and perhaps begin.</p>';
+      } else {
+        pulse.className='pulse dead';
+        pulse.innerHTML='<b>Deadline status: DECEASED</b>'
+          +'<div class="big mono">expired '+fmtDur(-left)+' ago</div>'
+          +'<p>This date has ended everywhere on Earth, including here, where it ended last. The Authority extends its condolences and reminds you that most systems accept a growing document titled "camera_ready_FINAL_v2".</p>';
+      }
+    }
+    render();
+    if(timer) clearInterval(timer);
+    timer = setInterval(render, 1000);
+  }
+  document.getElementById('dlBtn').addEventListener('click', pronounce);
+  pronounce();
+})();
+</script>
+</body>
+</html>

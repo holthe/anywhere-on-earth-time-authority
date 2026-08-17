@@ -1,0 +1,13 @@
+<!-- 16px icon, used only for the smallest favicon.ico entry.
+     The same one-minute-to-midnight clock as favicon.svg, simplified so
+     the hands survive 16 pixels: one minute hand at 12, one hour hand
+     just shy of it, no midnight in sight yet. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
+  <rect width="16" height="16" fill="#083a66"/>
+  <circle cx="8" cy="8" r="6" fill="#0b4f8a" stroke="#f5efdf" stroke-width="1.5"/>
+  <g stroke="#f5efdf" stroke-linecap="round">
+    <line x1="8" y1="8" x2="8" y2="3.5" stroke-width="1.5"/>
+    <line x1="8" y1="8" x2="6" y2="4.8" stroke-width="1.5"/>
+  </g>
+  <circle cx="8" cy="8" r="1" fill="#f5efdf"/>
+</svg>

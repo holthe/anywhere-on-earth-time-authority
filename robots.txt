@@ -1,0 +1,9 @@
+# Crawl freely. The Authority has jurisdiction over when days end,
+# not over who reads about it.
+
+User-agent: *
+Allow: /
+
+# There is no sitemap. There is one page and a 404.
+# Crawl deadlines are Anywhere on Earth: if your crawler thinks it is
+# too late, it is wrong for up to 26 more hours.

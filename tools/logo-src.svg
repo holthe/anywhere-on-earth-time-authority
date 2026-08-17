@@ -1,0 +1,11 @@
+<!-- Source for assets/logo.svg. Text is still live here; `make logo` runs
+     Inkscape with export-text-to-path so the committed logo does not depend
+     on the viewer's fonts. The wordmark is set in Georgia, which is
+     installed on this machine (see the README's font note). -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 400" width="1240" height="400" role="img" aria-label="The Anywhere on Earth Time Authority">
+  <rect width="1240" height="400" fill="#083a66"/>
+  <text x="620" y="96" text-anchor="middle" font-family="Liberation Sans, Arial, sans-serif" font-weight="bold" font-size="19" letter-spacing="6" fill="#9dbdda">BAKER &amp; HOWLAND ISLANDS &#183; UTC-12</text>
+  <text x="620" y="196" text-anchor="middle" font-family="Georgia, serif" font-size="58" fill="#ffffff">The Anywhere on Earth Time Authority</text>
+  <text x="620" y="256" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-size="27" fill="#9dbdda">Where every day ends last</text>
+  <text x="620" y="352" text-anchor="middle" font-family="Liberation Mono, Menlo, Consolas, monospace" font-weight="bold" font-size="56" letter-spacing="4" fill="#f5efdf">23:59:59</text>
+</svg>

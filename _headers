@@ -1,0 +1,22 @@
+# Cloudflare Pages header rules. Not served as a file.
+
+# Applies everywhere, including the apex, which /*.html would miss.
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+
+# Brand assets change rarely, but not never.
+/favicon.svg
+  Cache-Control: public, max-age=604800
+/favicon.ico
+  Cache-Control: public, max-age=604800
+/apple-touch-icon.png
+  Cache-Control: public, max-age=604800
+/og.png
+  Cache-Control: public, max-age=604800
+/assets/*
+  Cache-Control: public, max-age=604800
+
+# HTML keeps the Pages default of max-age=0, must-revalidate, so a change to
+# the official record reaches the public immediately. The clock itself is
+# computed client-side and needs no caching policy, only a working device.

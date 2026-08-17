@@ -1,0 +1,5 @@
+# Pins the Wrangler used to deploy this site. The machine-global mise config
+# tracks "latest"; this file overrides it inside the repo so a deploy is not
+# at the mercy of whatever Wrangler shipped this week.
+[tools]
+"npm:wrangler" = "4.120.0"
