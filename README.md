@@ -202,11 +202,12 @@ Until then the site is reachable at `aoetimeauthority.pages.dev`.
 ### Related
 
 The Authority is a division of
-[Best Effort Industries](https://besteffortindustries.com) and is
-registered as division 013 in the operating divisions table in that
-repository's `index.html`, in agreement, for once, with the document
-number in the site's own footer. It maintains a formal rivalry with
-UTC+14, conducted entirely by never communicating.
+[Best Effort Industries](https://besteffortindustries.com), currently
+queued in that register's Schedule B under a provisional number. Real
+division numbers are assigned by the register on entry into service,
+which is to say when the domain exists, which is to say not yet, which
+the Authority notes is not the same as never. It also maintains a formal
+rivalry with UTC+14, conducted entirely by never communicating.
 
 ## License
 
