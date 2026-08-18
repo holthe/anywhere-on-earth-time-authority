@@ -78,8 +78,12 @@ header is an inline SVG with an embedded raster core; it ships inside
 
 ### The production domain
 
-`aoetimeauthority.org` is a candidate; the domain has not been purchased.
-It is hardcoded, deliberately, and nothing derives it from anything else:
+The site is served at `aoetimeauthority.pages.dev`, and that is the host every absolute
+URL on the page points at, so link previews resolve. `aoetimeauthority.org` remains
+the candidate domain and has not been purchased; if the site is
+promoted, either to that domain or to a subdomain of the parent
+(`aoe.besteffortindustries.com`), the canonical host changes in the
+places below and nothing else derives it:
 
 | File | What to change |
 | --- | --- |
