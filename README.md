@@ -78,7 +78,7 @@ header is an inline SVG with an embedded raster core; it ships inside
 
 ### The production domain
 
-The site is served at `aoetimeauthority.pages.dev`, and that is the host every absolute
+The site is served at `aoe.besteffortindustries.com`, and that is the host every absolute
 URL on the page points at, so link previews resolve. `aoetimeauthority.org` remains
 the candidate domain and has not been purchased; if the site is
 promoted, either to that domain or to a subdomain of the parent
@@ -195,13 +195,13 @@ registered:
    Pages** -> `aoetimeauthority` -> **Custom domains** -> **Set up a
    custom domain**. Because the zone is on Cloudflare, the required CNAME
    record (apex, flattened, proxied, pointing at
-   `aoetimeauthority.pages.dev`) is created for you. **Do not create the
+   `aoe.besteffortindustries.com`) is created for you. **Do not create the
    record by hand first**; a pre-existing CNAME blocks the flow outright.
 3. **Repeat for `www`** if both should resolve.
 4. **Wait for the certificate.** Issuance normally completes within a few
    minutes of the record appearing.
 
-Until then the site is reachable at `aoetimeauthority.pages.dev`.
+Until then the site is reachable at `aoe.besteffortindustries.com`.
 
 ### Related
 
