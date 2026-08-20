@@ -26,7 +26,7 @@ og: ## Re-render og.png from tools/og.html
 	$(CHROME) --headless=new --disable-gpu --hide-scrollbars \
 		--force-device-scale-factor=1 --default-background-color=$(BLUE)FF \
 		--screenshot=/tmp/aoe-og-raw.png --window-size=1200,630 tools/og.html
-	$(MAGICK) /tmp/aoe-og-raw.png -strip -colors 64 PNG8:og.png
+	$(MAGICK) /tmp/aoe-og-raw.png -strip -dither None -colors 128 PNG8:og.png
 	@rm -f /tmp/aoe-og-raw.png
 	@echo "wrote og.png"
 

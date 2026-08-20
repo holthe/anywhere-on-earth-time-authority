@@ -12,7 +12,8 @@
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html, body { width: 1200px; height: 630px; }
   body {
-    background: #083a66;
+    background: #072b4a;
+    background-image: radial-gradient(60% 95% at 50% 0%, rgba(247,241,227,.14), transparent 72%);
     color: #fff;
     font-family: Georgia, serif;
     display: flex; flex-direction: column; text-align: center;
@@ -24,17 +25,18 @@
   }
   .lbl {
     font-family: "Helvetica Neue", Arial, sans-serif;
-    font-size: 18px; letter-spacing: 0.24em; text-transform: uppercase;
-    color: #9dbdda;
+    font-size: 16px; letter-spacing: 0.26em; text-transform: uppercase;
+    color: #9dbdda; font-weight: 600;
   }
   .clock {
     font-family: "Liberation Mono", Menlo, Consolas, monospace;
-    font-size: 168px; font-weight: 700; letter-spacing: 0.02em;
-    margin-top: 10px; color: #f5efdf;
+    font-size: 172px; font-weight: 500; letter-spacing: 0.01em;
+    margin-top: 12px; color: #f7f1e3; font-variant-numeric: tabular-nums;
+    text-shadow: 0 0 46px rgba(247,241,227,.20);
   }
-  h1 { font-size: 44px; font-weight: 400; margin-top: 10px; }
+  h1 { font-family: Georgia, serif; font-size: 42px; font-weight: 400; margin-top: 14px; }
   .sub {
-    margin-top: 14px; font-style: italic; font-size: 25px; color: #9dbdda;
+    margin-top: 12px; font-style: italic; font-size: 22px; color: #a7c3dc;
   }
   .foot {
     flex: none;
