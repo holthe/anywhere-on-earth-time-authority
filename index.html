@@ -11,7 +11,7 @@
      below and the footer of tools/og.html, then re-run `make og`. Those are
      the only two files that name it; nothing derives it. -->
 <link rel="canonical" href="https://aoe.besteffortindustries.com/">
-<meta name="theme-color" content="#0b0d10">
+<meta name="theme-color" content="#0a3a63">
 
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon.ico" sizes="48x48 32x32 16x16">
@@ -37,83 +37,74 @@
 <title>Anywhere on Earth Time Authority | Baker &amp; Howland Islands, UTC-12</title>
 <style>
   :root{
-    --ink:#0b0d10; --ink-2:#161a1f; --paper:#ffffff; --panel:#f6f7f9;
-    --line:#e4e7ec; --line-2:#cfd4dc; --muted:#5b636e; --faint:#8b929c;
-    --signal:#0f62fe; --alive:#0f7b3f; --dead:#c0362c; --glow:#e8f0ff;
+    --navy:#0a3a63; --navy-deep:#072b4a; --sand:#f7f1e3; --sand-line:#e6dcc4;
+    --paper:#ffffff; --ink:#17222e; --muted:#5c6773; --faint:#8a929c;
+    --line:#e3e7ec; --teal:#0d7a74; --alive:#1c7a45; --dead:#b23a2c;
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
   body{font-family:system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-    color:var(--ink);background:var(--paper);line-height:1.6;font-size:15.5px;
-    -webkit-font-smoothing:antialiased}
-  .wrap{max-width:1040px;margin:0 auto;padding:0 28px}
-  .mono{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace}
-  a{color:var(--signal)}
-  button:focus-visible,input:focus-visible,summary:focus-visible,a:focus-visible{outline:2px solid var(--signal);outline-offset:3px}
+    color:var(--ink);background:var(--paper);line-height:1.62;font-size:15.5px;-webkit-font-smoothing:antialiased}
+  h1,h2,.agency b{font-family:Georgia,"Times New Roman",serif;font-weight:400}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 28px}
+  a{color:var(--navy)}
+  button:focus-visible,input:focus-visible,summary:focus-visible,a:focus-visible{outline:2px solid var(--teal);outline-offset:3px}
 
-  /* official banner */
-  .govbar{background:var(--panel);border-bottom:1px solid var(--line);font-size:12px;color:var(--muted);padding:7px 0}
+  .govbar{background:var(--sand);border-bottom:1px solid var(--sand-line);font-size:12px;color:#6b6350;padding:7px 0}
   .govbar .wrap{display:flex;gap:9px;align-items:center}
-  .flag{width:18px;height:12px;flex:none;border:1px solid var(--line-2);
+  .flag{width:18px;height:12px;flex:none;border:1px solid #cfc3a4;
     background:
       linear-gradient(#005ea2 0 0) no-repeat 0 0 / 8px 7px,
       repeating-linear-gradient(#b50909 0 1.7px,#fff 1.7px 3.4px);}
 
-  /* masthead */
-  header{background:var(--paper);border-bottom:1px solid var(--line);padding:22px 0}
-  header .wrap{display:flex;gap:18px;align-items:center}
-  .seal{width:62px;height:62px;max-width:18vw;flex:none}
-  .agency small{display:block;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--faint);font-weight:600}
-  .agency b{display:block;font-size:clamp(17px,2.4vw,21px);font-weight:650;letter-spacing:-.01em;margin-top:3px}
-  .agency i{display:block;font-size:12.5px;color:var(--muted);font-style:normal;margin-top:3px}
+  header{background:var(--navy);color:#fff;padding:26px 0}
+  header .wrap{display:flex;gap:20px;align-items:center}
+  .seal{width:76px;height:76px;max-width:20vw;flex:none}
+  .agency small{display:block;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:#9dbdda;font-weight:600}
+  .agency b{display:block;font-size:clamp(19px,2.7vw,26px);letter-spacing:.005em;margin-top:5px}
+  .agency i{display:block;font-size:12.5px;color:#a7c3dc;font-style:italic;margin-top:5px}
 
-  /* the readout */
-  .clockpanel{background:var(--ink);color:#fff;padding:64px 0 58px;text-align:center;position:relative;overflow:hidden}
+  .clockpanel{background:var(--navy-deep);color:#fff;padding:58px 0 52px;text-align:center;position:relative;overflow:hidden}
   .clockpanel:before{content:"";position:absolute;inset:0;pointer-events:none;
-    background:radial-gradient(58% 90% at 50% 0%, rgba(15,98,254,.20), transparent 70%)}
+    background:radial-gradient(60% 95% at 50% 0%, rgba(247,241,227,.13), transparent 72%)}
   .clockpanel .wrap{position:relative}
-  .clockpanel .lbl{font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:#8f98a6;font-weight:600}
+  .clockpanel .lbl{font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;color:#9dbdda;font-weight:600}
   .clock{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
-    font-size:clamp(50px,13vw,116px);font-weight:600;font-variant-numeric:tabular-nums;
-    letter-spacing:.01em;line-height:1;margin-top:18px;
-    text-shadow:0 0 44px rgba(120,170,255,.28)}
-  .clockdate{font-size:14px;color:#aab2be;margin-top:14px;letter-spacing:.02em}
-  .clocknote{font-size:13px;color:#7f8895;margin:20px auto 0;max-width:520px;line-height:1.65}
+    font-size:clamp(48px,12vw,104px);font-weight:500;font-variant-numeric:tabular-nums;
+    line-height:1;margin-top:16px;color:var(--sand);text-shadow:0 0 40px rgba(247,241,227,.18)}
+  .clockdate{font-size:14px;color:#bcd2e6;margin-top:14px}
+  .clocknote{font-size:13px;color:#93aec7;margin:18px auto 0;max-width:520px;line-height:1.65}
 
-  /* sections */
-  section{padding:64px 0;border-bottom:1px solid var(--line)}
-  .kicker{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--signal);font-weight:700}
-  section h2{font-size:clamp(21px,2.8vw,27px);font-weight:650;letter-spacing:-.015em;margin:10px 0 10px}
-  section p.intro{color:var(--muted);max-width:660px;font-size:15.5px}
+  section{padding:60px 0;border-bottom:1px solid var(--line)}
+  .kicker{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--teal);font-weight:700}
+  section h2{font-size:clamp(22px,3vw,30px);margin:10px 0 10px;letter-spacing:-.005em}
+  section p.intro{color:var(--muted);max-width:660px}
 
-  /* instrument panel */
-  .checker{margin-top:28px;border:1px solid var(--line);background:var(--paper);max-width:720px}
-  .checker .row{display:flex;gap:0;flex-wrap:wrap;align-items:stretch;border-bottom:1px solid var(--line)}
-  .field{flex:1;min-width:220px;padding:16px 20px;border-right:1px solid var(--line)}
-  .checker label{display:block;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);font-weight:700;margin-bottom:7px}
+  .checker{margin-top:28px;border:1px solid var(--sand-line);background:var(--sand);max-width:720px}
+  .checker .row{display:flex;flex-wrap:wrap;align-items:stretch;border-bottom:1px solid var(--sand-line)}
+  .field{flex:1;min-width:220px;padding:16px 20px;border-right:1px solid var(--sand-line)}
+  .checker label{display:block;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#7d745e;font-weight:700;margin-bottom:7px}
   input[type=date]{font:inherit;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:16px;
     border:0;background:transparent;color:var(--ink);padding:0;width:100%}
-  button{font:inherit;font-size:13px;font-weight:650;letter-spacing:.02em;background:var(--ink);color:#fff;
-    border:0;padding:0 30px;cursor:pointer;flex:none}
-  button:hover{background:var(--signal)}
-  .pulse{display:none;padding:20px 22px}
+  button{font:inherit;font-size:13px;font-weight:650;background:var(--navy);color:#fff;border:0;padding:0 30px;cursor:pointer;flex:none}
+  button:hover{background:var(--teal)}
+  .pulse{display:none;padding:20px 22px;background:var(--paper)}
   .pulse.alive,.pulse.dead{display:block}
   .pulse b{display:flex;align-items:center;gap:9px;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;margin-bottom:10px}
   .pulse b:before{content:"";width:8px;height:8px;border-radius:50%;flex:none}
   .pulse.alive b{color:var(--alive)}
-  .pulse.alive b:before{background:var(--alive);box-shadow:0 0 0 3px rgba(15,123,63,.15)}
+  .pulse.alive b:before{background:var(--alive);box-shadow:0 0 0 3px rgba(28,122,69,.15)}
   .pulse.dead b{color:var(--dead)}
-  .pulse.dead b:before{background:var(--dead);box-shadow:0 0 0 3px rgba(192,54,44,.15)}
-  .pulse .big{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:clamp(24px,4vw,34px);
-    font-variant-numeric:tabular-nums;letter-spacing:-.01em;margin:2px 0 10px}
+  .pulse.dead b:before{background:var(--dead);box-shadow:0 0 0 3px rgba(178,58,44,.15)}
+  .pulse .big{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:clamp(23px,4vw,32px);
+    font-variant-numeric:tabular-nums;margin:2px 0 10px}
   .pulse p{font-size:13.5px;color:var(--muted);max-width:620px}
 
-  /* jurisdiction data */
   .islandgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
     border:1px solid var(--line);border-bottom:0;margin-top:28px}
   .islandgrid div{padding:20px;border-bottom:1px solid var(--line);border-right:1px solid var(--line)}
   .islandgrid div:last-child{border-right:0}
-  .islandgrid b{display:block;font-size:26px;font-weight:650;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+  .islandgrid b{display:block;font-family:Georgia,serif;font-size:27px;font-variant-numeric:tabular-nums;color:var(--navy)}
   .islandgrid span{display:block;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin-top:6px;font-weight:600}
 
   .visitor{margin-top:34px;max-width:820px}
@@ -123,20 +114,18 @@
     text-transform:uppercase;font-weight:700;padding-top:3px}
   .visitor li div{color:var(--muted);max-width:560px}
 
-  /* guidance */
   details{border-top:1px solid var(--line)}
   details:last-of-type{border-bottom:1px solid var(--line)}
-  summary{padding:17px 34px 17px 0;font-weight:600;cursor:pointer;list-style:none;position:relative;font-size:15.5px}
+  summary{padding:17px 34px 17px 0;font-weight:600;cursor:pointer;list-style:none;position:relative}
   summary::-webkit-details-marker{display:none}
-  summary:after{content:"+";position:absolute;right:6px;top:15px;color:var(--signal);font-size:18px;font-weight:500}
+  summary:after{content:"+";position:absolute;right:6px;top:14px;color:var(--teal);font-size:19px;font-weight:400}
   details[open] summary:after{content:"\2212"}
-  summary:hover{color:var(--signal)}
+  summary:hover{color:var(--navy)}
   details p{padding:0 34px 20px 0;color:var(--muted);max-width:720px;font-size:14.5px}
 
-  footer{padding:46px 0 60px;font-size:12.5px;color:#8b929c;background:var(--ink)}
-  footer .doc{letter-spacing:.16em;text-transform:uppercase;font-size:10.5px;color:#6f7783;font-weight:600}
+  footer{padding:44px 0 58px;font-size:12.5px;color:#6b6350;background:var(--sand);border-top:1px solid var(--sand-line)}
+  footer .doc{letter-spacing:.16em;text-transform:uppercase;font-size:10.5px;color:#8a8064;font-weight:600}
   footer p{margin-top:12px;max-width:760px;line-height:1.7}
-  footer a{color:#9dbcff}
 
   @media (max-width:640px){
     section{padding:44px 0}
@@ -145,7 +134,7 @@
     .islandgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
     .islandgrid div:nth-child(2n){border-right:0}
     .checker .row{display:block}
-    .field{border-right:0;border-bottom:1px solid var(--line)}
+    .field{border-right:0;border-bottom:1px solid var(--sand-line)}
     button{width:100%;padding:16px 0}
   }
 </style>
