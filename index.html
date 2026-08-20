@@ -90,6 +90,12 @@
   .visitor{margin-top:22px;max-width:680px}
   .visitor li{list-style:none;display:flex;gap:12px;padding:11px 0;border-bottom:1px dotted var(--line);font-size:14.5px}
   .visitor li span:first-child{flex:none;width:170px;color:var(--muted);font-size:12px;letter-spacing:.1em;text-transform:uppercase;padding-top:2px}
+  @media (max-width:640px){
+    /* the label sits above its entry rather than squeezing it into a column */
+    .visitor li{display:block;padding:14px 0}
+    .visitor li span:first-child{width:auto;display:block;margin-bottom:5px;padding-top:0}
+    .islandgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  }
 
   details{border:1px solid var(--line);border-bottom:0}
   details:last-of-type{border-bottom:1px solid var(--line)}
