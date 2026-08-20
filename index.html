@@ -50,6 +50,13 @@
   button:focus-visible,input:focus-visible,a:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
 
   .govbar{background:var(--sand);font-size:12px;color:#6b6350;padding:6px 0;border-bottom:1px solid #e4dcc6}
+  .govbar .wrap{display:flex;gap:8px;align-items:flex-start}
+  /* The islands are US territory, so the banner flies the same flag the
+     federal sites do. Nobody on the ground has ever seen it. */
+  .flag{width:18px;height:12px;flex:none;margin-top:3px;border:1px solid #c9bfa2;
+    background:
+      linear-gradient(#005ea2 0 0) no-repeat 0 0 / 8px 7px,
+      repeating-linear-gradient(#b50909 0 1.7px,#fff 1.7px 3.4px);}
   header{background:var(--blue-deep);color:#fff;padding:24px 0}
   header .wrap{display:flex;gap:16px;align-items:center}
   .seal{width:92px;height:92px;max-width:26vw;flex:none}
@@ -110,7 +117,7 @@
 </head>
 <body>
 
-<div class="govbar"><div class="wrap">An official website of the Baker and Howland Islands, population 0. Official status self-declared, uncontested, as there is no one to contest it.</div></div>
+<div class="govbar"><div class="wrap"><span class="flag" aria-hidden="true"></span><span>An official website of the Baker and Howland Islands, population 0. Official status self-declared, uncontested, as there is no one to contest it.</span></div></div>
 
 <header>
   <div class="wrap">
