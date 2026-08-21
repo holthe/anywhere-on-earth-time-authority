@@ -38,7 +38,7 @@
 <style>
   :root{
     --navy:#0a3a63; --navy-deep:#072b4a; --sand:#f7f1e3; --sand-line:#e6dcc4;
-    --paper:#ffffff; --ink:#17222e; --muted:#5c6773; --faint:#8a929c;
+    --paper:#ffffff; --ink:#17222e; --muted:#5c6773; --faint:#6b7480;
     --line:#e3e7ec; --teal:#0d7a74; --alive:#1c7a45; --dead:#b23a2c;
   }
   *{margin:0;padding:0;box-sizing:border-box}
@@ -46,6 +46,8 @@
   body{font-family:system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
     color:var(--ink);background:var(--paper);line-height:1.62;font-size:15.5px;-webkit-font-smoothing:antialiased}
   h1,h2,.agency b{font-family:Georgia,"Times New Roman",serif;font-weight:400}
+  /* the agency name is the page's h1; display:contents leaves the <b> styling alone */
+  .agency h1{margin:0;font:inherit;display:contents}
   .wrap{max-width:1000px;margin:0 auto;padding:0 28px}
   a{color:var(--navy)}
   button:focus-visible,input:focus-visible,summary:focus-visible,a:focus-visible{outline:2px solid var(--teal);outline-offset:3px}
@@ -174,7 +176,7 @@
       </g>
     </svg>
     <div class="agency">
-      <b>The Anywhere on Earth Time Authority</b>
+      <h1><b>The Anywhere on Earth Time Authority</b></h1>
       <i>Baker &amp; Howland Islands · UTC-12 · Where every day ends last</i>
     </div>
   </div>
@@ -214,7 +216,7 @@
     <p class="intro">UTC-12 contains almost nothing. Its only land is Baker Island and Howland Island, two uninhabited US atolls near the equator, administered as wildlife refuges. Every "23:59 AoE" on the planet is, formally, 23:59 here, on the local time of a place where no one has ever submitted anything.</p>
     <div class="islandgrid">
       <div><b>0</b><span>Permanent residents</span></div>
-      <div><b>~2.5 km²</b><span>Combined land area</span></div>
+      <div><b>~3.9 km²</b><span>Combined land area</span></div>
       <div><b>Millions</b><span>Deadlines administered (annually)</span></div>
       <div><b>Seabirds</b><span>Primary constituents</span></div>
     </div>
@@ -293,8 +295,11 @@
     var v = dl.value;
     if(!v){ pulse.className='pulse dead'; pulse.innerHTML='<b>No pronouncement possible</b><p>No date supplied. A deadline with no date cannot die, which the Authority notes is one strategy.</p>'; return; }
     var p = v.split('-').map(Number);
-    // deadline ends when the date ends in UTC-12: end-of-day AoE = 23:59:59 at UTC-12 = next-day 11:59:59 UTC
-    var endUtc = Date.UTC(p[0], p[1]-1, p[2], 23,59,59) + 12*3600*1000;
+    // the date ends when the next one begins at UTC-12, so the boundary is
+    // exclusive: midnight after the selected day, which is 12:00 UTC the day
+    // after. Using 23:59:59 threw away the last second, the one second on
+    // Earth this Authority exists to defend
+    var endUtc = Date.UTC(p[0], p[1]-1, p[2]+1, 0,0,0) + 12*3600*1000;
     function render(){
       var left = endUtc - Date.now();
       if(left > 0){
